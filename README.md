@@ -259,7 +259,7 @@ Berikut adalah dokumentasi visual antarmuka dan keluaran program saat dijalankan
 ### 1. Tampilan Menu Utama
 > Menampilkan menu pilihan sistem manajemen klub saat pertama kali program dijalankan, dengan data awal (7 pemain, 3 pelatih, 4 pertandingan) sudah termuat.
 
-![Tampilan Menu Utama]screenshots/Screenshot 2026-10-08 223822.png
+![Tampilan Menu Utama](screenshots/Screenshot 2026-10-08 223822.png)
 
 ---
 
@@ -272,7 +272,7 @@ Berikut adalah dokumentasi visual antarmuka dan keluaran program saat dijalankan
 #### B. Tambah Data Pemain (Input & Validasi)
 > Proses menginput data pemain baru.
 
-![Tambah Pemain](Screenshots/03-tambah-pemain.png)
+![Tambah Pemain](screenshots/Screenshot 2026-10-08 224531.png)
 
 #### C. Lihat Daftar Pemain
 > Output daftar seluruh pemain yang tersimpan di sistem, memanfaatkan method `getInfo()` lewat `tampilkanDaftar()`.
