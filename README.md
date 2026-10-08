@@ -259,7 +259,7 @@ Berikut adalah dokumentasi visual antarmuka dan keluaran program saat dijalankan
 ### 1. Tampilan Menu Utama
 > Menampilkan menu pilihan sistem manajemen klub saat pertama kali program dijalankan, dengan data awal (7 pemain, 3 pelatih, 4 pertandingan) sudah termuat.
 
-![Tampilan Menu Utama](Screenshot 2026-10-08 223822.png)
+![Tampilan Menu Utama](screenshots/Screenshot 2026-10-08 223822.png)
 
 ---
 
@@ -267,7 +267,7 @@ Berikut adalah dokumentasi visual antarmuka dan keluaran program saat dijalankan
 #### A. Menu Pemain
 > Submenu yang muncul setelah memilih angka 1, berisi pilihan tambah, lihat, hapus, update status, dan kembali.
 
-![Menu Pemain](Screenshots/02-menu-pemain.png)
+![Menu Pemain](screenshots/02-menu-pemain.png)
 
 #### B. Tambah Data Pemain (Input & Validasi)
 > Proses menginput data pemain baru.
@@ -277,17 +277,17 @@ Berikut adalah dokumentasi visual antarmuka dan keluaran program saat dijalankan
 #### C. Lihat Daftar Pemain
 > Output daftar seluruh pemain yang tersimpan di sistem, memanfaatkan method `getInfo()` lewat `tampilkanDaftar()`.
 
-![Lihat Daftar Pemain](Screenshots/04-lihat-pemain.png)
+![Lihat Daftar Pemain](screenshots/04-lihat-pemain.png)
 
 #### D. Hapus Pemain
 > Proses penghapusan data pemain dari sistem berdasarkan nama yang diinputkan pengguna.
 
-![Hapus Pemain](Screenshots/05-hapus-pemain.png)
+![Hapus Pemain](screenshots/05-hapus-pemain.png)
 
 #### E. Update Status Pemain
 > Pembaruan status kesehatan pemain (Tersedia/Cedera) berdasarkan nama pemain yang dicari.
 
-![Update Status Pemain](Screenshots/06-update-status-pemain.png)
+![Update Status Pemain](screenshots/06-update-status-pemain.png)
 
 ---
 
@@ -295,17 +295,17 @@ Berikut adalah dokumentasi visual antarmuka dan keluaran program saat dijalankan
 #### A. Menu Pelatih
 > Submenu yang muncul setelah memilih angka 2, berisi pilihan tambah pelatih, lihat daftar pelatih, dan kembali.
  
-![Menu Pelatih](Screenshots/07-menu-pelatih.png)
+![Menu Pelatih](screenshots/07-menu-pelatih.png)
  
 #### B. Tambah Pelatih
 > Menginput data pelatih baru beserta spesialisasi dan pengalaman melatih.
  
-![Tambah Pelatih](Screenshots/08-tambah-pelatih.png)
+![Tambah Pelatih](screenshots/08-tambah-pelatih.png)
  
 #### C. Lihat Daftar Pelatih
 > Menampilkan daftar pelatih yang ada di dalam klub.
  
-![Lihat Daftar Pelatih](Screenshots/09-lihat-pelatih.png)
+![Lihat Daftar Pelatih](screenshots/09-lihat-pelatih.png)
  
 ---
 
@@ -313,21 +313,21 @@ Berikut adalah dokumentasi visual antarmuka dan keluaran program saat dijalankan
 #### A. Menu Pertandingan
 > Submenu yang muncul setelah memilih angka 3, berisi pilihan tambah pertandingan, lihat riwayat pertandingan, dan kembali.
  
-![Menu Pertandingan](Screenshots/10-menu-pertandingan.png)
+![Menu Pertandingan](screenshots/10-menu-pertandingan.png)
  
 #### B. Tambah Pertandingan
 > Mengisi riwayat pertandingan baru meliputi tim lawan, tanggal, kompetisi, skor, dan lokasi pertandingan.
  
-![Tambah Pertandingan](Screenshots/11-tambah-pertandingan.png)
+![Tambah Pertandingan](screenshots/11-tambah-pertandingan.png)
  
 #### C. Lihat Riwayat Pertandingan
 > Menampilkan riwayat seluruh pertandingan yang telah ditambahkan, lengkap dengan hasil (Menang/Kalah/Seri) yang dihitung otomatis dari skor.
  
-![Lihat Riwayat Pertandingan](Screenshots/12-lihat-pertandingan.png)
+![Lihat Riwayat Pertandingan](screenshots/12-lihat-pertandingan.png)
  
 ---
 
 ### 5. Keluar dari Program
 > Penutupan program ketika pengguna memilih menu angka 4 pada menu utama.
 
-![Keluar Program](Screenshots/13-keluar.png)
+![Keluar Program](screenshots/13-keluar.png)
