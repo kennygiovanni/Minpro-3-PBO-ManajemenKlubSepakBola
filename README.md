@@ -272,7 +272,7 @@ Berikut adalah dokumentasi visual antarmuka dan keluaran program saat dijalankan
 #### B. Tambah Data Pemain (Input & Validasi)
 > Proses menginput data pemain baru.
 
-![Tambah Pemain](screenshots/Screenshot 2026-10-08 224531.png)
+![Tambah Pemain](https://github.com/kennygiovanni/Minpro-3-PBO-ManajemenKlubSepakBola/blob/master/screenshots/Screenshot%202026-10-08%20223822.png)
 
 #### C. Lihat Daftar Pemain
 > Output daftar seluruh pemain yang tersimpan di sistem, memanfaatkan method `getInfo()` lewat `tampilkanDaftar()`.
