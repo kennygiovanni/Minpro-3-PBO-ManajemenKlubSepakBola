@@ -1,22 +1,22 @@
 package model;
 
-public class AnggotaKlub {
-    private String nama;
+public abstract class AnggotaKlub implements Informasi{
+    private final String nama;
     
     public AnggotaKlub(String nama) {
         this.nama = nama;
     }
     
-    public String getNama() {
+    public final String getNama() {
         return nama;
     }
     
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
+    public abstract String getPeran();
     
+    @Override
     public String getInfo() {
-        return "Nama             : " + nama;
-    }          
+        return "Peran            : " + getPeran()
+             + "\nNama             : " + nama; 
+    }
 }
 

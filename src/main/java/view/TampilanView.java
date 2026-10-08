@@ -1,81 +1,63 @@
 package view;
 
-import java.util.ArrayList;
-import model.AnggotaKlub;
-import model.Pemain;
-import model.Pelatih;
-import model.Pertandingan;
+import java.util.List;
+import model.Informasi;
 
 public class TampilanView {
     
-    //=== MENU DAN PESAN AWAL ===
+    //=== MENU DAN PESAN ===
     public void tampilkanSambutan() {
         System.out.println("=== SISTEM MANAJEMEN KLUB SEPAK BOLA");
         System.out.println("Selamat Datang, Manajer");
     }
     
-    public void tampilkanMenu() {
+    public void tampilkanMenuUtama() {
         System.out.println("=== MENU ===");
+        System.out.println("1. Menu Pemain");
+        System.out.println("2. Menu Pelatih");
+        System.out.println("3. Menu Pertandingan");
+        System.out.println("4. Keluar");
+    }
+        
+    public void tampilkanMenuPemain() {
         System.out.println("1. Tambah Pemain");
         System.out.println("2. Lihat Semua Pemain");
         System.out.println("3. Hapus Pemain");
         System.out.println("4. Update Status Pemain");
-        System.out.println("5. Tambah Pertandingan");
-        System.out.println("6. Lihat Riwayat Pertandingan");
-        System.out.println("7. Tambah Pelatih");
-        System.out.println("8. Lihat Semua Pelatih");
-        System.out.println("9. Keluar");
+        System.out.println("5. Kembali ke Menu Utama");
+    }
+        
+    public void tampilkanMenuPelatih() {
+        System.out.println("1. Tambah Pelatih");
+        System.out.println("2. Lihat Semua Pelatih");
+        System.out.println("3. Kembali ke Menu Utama");
+    }
+    
+    public void tampilkanMenuPertandingan() {
+        System.out.println("=== MENU PERTANDINGAN ===");
+        System.out.println("1. Tambah Pertandingan");
+        System.out.println("2. Lihat Riwayat Pertandingan");
+        System.out.println("3. Kembali ke Menu Utama");
     }
     
     public void tampilkanPesan(String pesan) {
         System.out.println(pesan);
     }
     
-    public void tampilkanInfo(AnggotaKlub a) {
-        System.out.println(a.getInfo());
+    // === POLYMORPHISM == 
+    private void tampilkanInfo(Informasi i) {
+        System.out.println(i.getInfo());
         System.out.println("--------------------------------");
     }
     
-    public void tampilkanDaftarPemain(ArrayList<Pemain> daftarPemain) {
-        if (daftarPemain.isEmpty()) {
-            System.out.println("Belum ada data pemain");
+    public void tampilkanDaftar(String judul, List<? extends Informasi> daftar) {
+        if (daftar.isEmpty()) {
+            System.out.println("Belum ada data " + judul.toLowerCase());
             return;
         }
-        System.out.println("=== DAFTAR PEMAIN ===");
-        for (Pemain p : daftarPemain) {
-            tampilkanInfo(p);
+    System.out.println("=== DAFTAR " + judul.toUpperCase() + " ===");
+        for (Informasi i : daftar) {
+            tampilkanInfo(i);
         }
-    }
-    
-    public void tampilkanDaftarPelatih(ArrayList<Pelatih> daftarPelatih) {
-        if (daftarPelatih.isEmpty()) {
-            System.out.println("Belum ada data pelatih");
-            return;
-        }
-        System.out.println("=== DAFTAR PELATIH ===");
-        for (Pelatih p : daftarPelatih) {
-            tampilkanInfo(p);
-        }
-    }
-    
-    public void tampilkanSatuPertandingan(Pertandingan p) {
-        System.out.println("Lawan     : " + p.getLawan());
-        System.out.println("Tanggal   : " + p.getTanggal());
-        System.out.println("Kompetisi : " + p.getKompetisi());
-        System.out.println("Skor      : " + p.getSkorKlub() + " - " + p.getSkorLawan());
-        System.out.println("Lokasi    : " + p.getLokasi());
-        System.out.println("Hasil     : " + p.getHasil());
-        System.out.println("--------------------------------------");
-    }
-    
-    public void tampilkanDaftarPertandingan(ArrayList<Pertandingan> daftarPertandingan) {
-        if (daftarPertandingan.isEmpty()) {
-            System.out.println("Belum ada data pertandingan");
-            return;
-        }
-        System.out.println("=== RIWAYAR PERTANDINGAN ===");
-        for (Pertandingan p : daftarPertandingan) {
-            tampilkanSatuPertandingan(p);
-        }
-    }
+    }   
 }

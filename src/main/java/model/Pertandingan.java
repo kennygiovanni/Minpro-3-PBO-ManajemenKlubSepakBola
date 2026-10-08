@@ -1,9 +1,9 @@
 package model;
 
-public class Pertandingan {
-    private String lawan;
-    private String tanggal;
-    private String kompetisi;
+public final class Pertandingan implements Informasi {
+    private final String lawan;
+    private final String tanggal;
+    private final String kompetisi;
     private int skorKlub;
     private int skorLawan;
     private String lokasi;
@@ -16,44 +16,12 @@ public class Pertandingan {
         setSkorLawan(skorLawan);
         setLokasi(lokasi);
     }
-
-    public String getLawan() {
-        return lawan;
+    
+    public Pertandingan(String lawan, String tanggal, int skorKlub, int skorLawan, String lokasi) {
+        this(lawan, tanggal, "Pertandingan Persahabatan", skorKlub, skorLawan, lokasi);
     }
 
-    public String getTanggal() {
-        return tanggal;
-    }
-
-    public String getKompetisi() {
-        return kompetisi;
-    }
-
-    public int getSkorKlub() {
-        return skorKlub;
-    }
-
-    public int getSkorLawan() {
-        return skorLawan;
-    }
-
-    public String getLokasi() {
-        return lokasi;
-    }
-
-    public void setLawan(String lawan) {
-        this.lawan = lawan;
-    }
-
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
-    }
-
-    public void setKompetisi(String kompetisi) {
-        this.kompetisi = kompetisi;
-    }
-
-    public void setSkorKlub(int skorKlub) {
+    private void setSkorKlub(int skorKlub) {
         if (skorKlub >= 0) {
             this.skorKlub = skorKlub;
         } 
@@ -63,7 +31,7 @@ public class Pertandingan {
         }
     }
 
-    public void setSkorLawan(int skorLawan) {
+    private void setSkorLawan(int skorLawan) {
         if (skorLawan >= 0) {
             this.skorLawan = skorLawan;
         } 
@@ -73,7 +41,7 @@ public class Pertandingan {
         }
     }
     
-    public void setLokasi(String lokasi) {
+    private void setLokasi(String lokasi) {
         if (lokasi.equalsIgnoreCase("Kandang") || lokasi.equalsIgnoreCase("Tandang")) {
             this.lokasi = lokasi;
         }
@@ -83,7 +51,7 @@ public class Pertandingan {
         }
     }
     
-    public String getHasil() {
+    private String getHasil() {
         if (skorKlub > skorLawan) {
             return "Menang";
         }
@@ -93,5 +61,15 @@ public class Pertandingan {
         else{
             return "Seri";
         }
+    }
+    
+    @Override
+    public String getInfo() {
+        return "Lawan     : " + lawan
+              + "\nTanggal   : " + tanggal
+              + "\nKompetisi : " + kompetisi
+              + "\nSkor      : " + skorKlub + " - " + skorLawan
+              + "\nLokasi    : " + lokasi
+              + "\nHasil     : " + getHasil();
     }
 }

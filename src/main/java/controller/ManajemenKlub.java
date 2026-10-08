@@ -7,16 +7,16 @@ import model.Pelatih;
 import view.TampilanView;
 
 public class ManajemenKlub {
-    private ArrayList<Pemain> daftarPemain;
-    private ArrayList<Pelatih> daftarPelatih;
-    private ArrayList<Pertandingan> daftarPertandingan;
+    private final ArrayList<Pemain> daftarPemain;
+    private final ArrayList<Pelatih> daftarPelatih;
+    private final ArrayList<Pertandingan> daftarPertandingan;
     
-    private TampilanView tampilanView;
+    private final TampilanView tampilanView;
     
     public ManajemenKlub() {
-        daftarPemain = new ArrayList<Pemain>();
-        daftarPelatih = new ArrayList<Pelatih>();
-        daftarPertandingan = new ArrayList<Pertandingan>();
+        daftarPemain = new ArrayList<>();
+        daftarPelatih = new ArrayList<>();
+        daftarPertandingan = new ArrayList<>();
         
         tampilanView = new TampilanView();
         
@@ -35,7 +35,8 @@ public class ManajemenKlub {
  
         daftarPertandingan.add(new Pertandingan("Persija FC", "12-08-2026", "Liga 1", 3, 1, "Kandang"));
         daftarPertandingan.add(new Pertandingan("Bali United", "19-08-2026", "Liga 1", 1, 1, "Tandang"));
-        daftarPertandingan.add(new Pertandingan("Borneo FC", "26-08-2026", "Turnamen Persahabatan", 0, 2, "Kandang"));
+        daftarPertandingan.add(new Pertandingan("Borneo FC", "26-08-2026", "Liga 1", 0, 2, "Kandang"));
+        daftarPertandingan.add(new Pertandingan("Macan Kemayoran", "02-09-2026", 2, 2, "Tandang"));
     }
     
     public void tambahPemain(Pemain p) {
@@ -43,7 +44,7 @@ public class ManajemenKlub {
     }
     
     public void tampilkanSemuaPemain(){
-        tampilanView.tampilkanDaftarPemain(daftarPemain);
+        tampilanView.tampilkanDaftar("Pemain", daftarPemain);
     }
     
     public boolean updateStatusPemain(String nama, String statusBaru){
@@ -78,7 +79,7 @@ public class ManajemenKlub {
     }
     
     public void tampilkanSemuaPelatih(){
-        tampilanView.tampilkanDaftarPelatih(daftarPelatih);
+        tampilanView.tampilkanDaftar("Pelatih", daftarPelatih);
     }
     
     public void tambahPertandingan(Pertandingan p){
@@ -86,6 +87,6 @@ public class ManajemenKlub {
     }
     
     public void tampilkanRiwayatPertandingan(){
-        tampilanView.tampilkanDaftarPertandingan(daftarPertandingan);
+        tampilanView.tampilkanDaftar("Riwayat Pertandingan", daftarPertandingan);
     }
 }        

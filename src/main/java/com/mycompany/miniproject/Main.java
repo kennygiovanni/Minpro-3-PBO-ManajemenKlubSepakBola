@@ -11,164 +11,245 @@ public class Main {
 
     public static void main(String[] args) {
         
-      Scanner scanner = new Scanner (System.in);
-      ManajemenKlub klub = new ManajemenKlub();
-      TampilanView menuView = new TampilanView();
-      int pilihan;
+      final Scanner scanner = new Scanner (System.in);
+      final ManajemenKlub klub = new ManajemenKlub();
+      final TampilanView menuView = new TampilanView();
+      int pilihanUtama;
         
       menuView.tampilkanSambutan();
         
       do {
-        menuView.tampilkanMenu();
+        menuView.tampilkanMenuUtama();
         System.out.print("Pilih Menu: ");  
         
         while (!scanner.hasNextInt()) {
-            menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka (1-9).");
+            menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka (1-4).");
             scanner.next();
             System.out.print("Pilih Menu: ");
         }
-        pilihan = scanner.nextInt();
+        pilihanUtama = scanner.nextInt();
         scanner.nextLine();
         
-        switch (pilihan){
+        switch (pilihanUtama){
             case 1:
-                System.out.print("Nama Pemain: ");
-                String namaPemain = scanner.nextLine();
+                int pilihanPemain;
+                do {
+                    menuView.tampilkanMenuPemain();
+                    System.out.print("Pilih Menu: ");
+                    
+                    while (!scanner.hasNextInt()) {
+                        menuView.tampilkanPesan("Input harus angka, silahkan coba lagi.");
+                        scanner.next();
+                        System.out.print("Pilih Menu: ");
+                    }
+                    pilihanPemain = scanner.nextInt();
+                    scanner.nextLine();
 
-                System.out.print("Posisi (GK/CB/LB/RB/CDM/CM/CAM/LW/RW/ST): ");
-                String posisi = scanner.nextLine();
+                    switch (pilihanPemain) {
+                        case 1:
+                            System.out.print("Nama Pemain: ");
+                            String namaPemain = scanner.nextLine();
 
-                System.out.print("Nomor Punggung (1-99): ");
-                while (!scanner.hasNextInt()) {
-                    menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka (1-99).");
-                    scanner.next();
+                            System.out.print("Posisi (GK/CB/LB/RB/CDM/CM/CAM/LW/RW/ST): ");
+                            String posisi = scanner.nextLine();
+
+                            System.out.print("Nomor Punggung (1-99): ");
+                            while (!scanner.hasNextInt()) {
+                                menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka (1-99).");
+                                scanner.next();
+                            }
+                            int nomor = scanner.nextInt();
+
+                            System.out.print("Usia: ");
+                            while (!scanner.hasNextInt()) {
+                                menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka.");
+                                scanner.next();
+                            }
+                            int usia = scanner.nextInt();
+                            scanner.nextLine();
+
+                            System.out.print("Status Kesehatan (Tersedia/Cedera): ");
+                            String status = scanner.nextLine();
+
+                            Pemain pemainBaru = new Pemain(namaPemain, posisi, nomor, usia, status);
+                            klub.tambahPemain(pemainBaru);
+                            menuView.tampilkanPesan("Pemain Berhasil Ditambahkan");
+                            break;
+
+                        case 2:
+                        klub.tampilkanSemuaPemain();
+                        menuView.tampilkanPesan("Tekan Enter untuk kembali ke menu.");
+                        scanner.nextLine();
+                        break;
+
+                        case 3:
+                            System.out.print("Masukkan Nama Pemain: ");
+                            String namaHapus = scanner.nextLine();
+                            boolean berhasilHapus = klub.hapusPemain(namaHapus);
+                            if (berhasilHapus) {
+                                menuView.tampilkanPesan("Pemain Sudah Dihapus.");
+                            }
+                            else {
+                                menuView.tampilkanPesan("Pemain dengan nama tersebut tidak ada.");
+                            }
+                            break;
+
+                        case 4:
+                            System.out.print("Masukkan Nama Pemain: ");
+                            String namaUpdate = scanner.nextLine();
+                            System.out.print("Status Kesehatan Baru (Tersedia/Cedera): ");
+                            String statusBaru = scanner.nextLine();
+                            boolean berhasilUpdate = klub.updateStatusPemain(namaUpdate, statusBaru);
+                            if (berhasilUpdate) {
+                                menuView.tampilkanPesan("Update Status Pemain Berhasil");
+                            } 
+                            else {
+                                menuView.tampilkanPesan("Pemain dengan nama tersebut tidak ditemukan.");
+                            }
+                            break; 
+
+                        case 5:
+                            menuView.tampilkanPesan("Kembali ke menu utama.");
+                            break;
+
+                        default:
+                            menuView.tampilkanPesan("Pilihan hanya 1-5");
+                    }
+                
                 }
-                int nomor = scanner.nextInt();
-            
-                System.out.print("Usia: ");
-                while (!scanner.hasNextInt()) {
-                    menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka.");
-                    scanner.next();
-                }
-                int usia = scanner.nextInt();
-                scanner.nextLine();
-
-                System.out.print("Status Kesehatan (Tersedia/Cedera): ");
-                String status = scanner.nextLine();
-
-                Pemain pemainBaru = new Pemain(namaPemain, posisi, nomor, usia, status);
-                klub.tambahPemain(pemainBaru);
-                menuView.tampilkanPesan("Pemain Berhasil Ditambahkan");
+                while (pilihanPemain != 5);
                 break;
-        
+              
             case 2:
-                klub.tampilkanSemuaPemain();
-                menuView.tampilkanPesan("Tekan Enter untuk kembali ke menu.");
-                scanner.nextLine();
-                break;
+                int pilihanPelatih;
+                do {
+                    menuView.tampilkanMenuPelatih();
+                    System.out.print("Pilih Menu: ");
+                    
+                    while (!scanner.hasNextInt()) {
+                        menuView.tampilkanPesan("Input harus angka, silahkan coba lagi.");
+                        scanner.next();
+                        System.out.print("Pilih Menu: ");
+                    }
+                    pilihanPelatih = scanner.nextInt();
+                    scanner.nextLine();
+                    
+                    switch (pilihanPelatih) {
+                        case 1:
+                            System.out.print("Nama Pelatih: ");
+                            String namaPelatih = scanner.nextLine();
 
+                            System.out.print("Spesialisasi: ");
+                            String spesialisasi = scanner.nextLine();
+
+                            System.out.print("Pengalaman (tahun): ");
+                            while (!scanner.hasNextInt()) {
+                                menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka.");
+                                scanner.next();
+                            }
+                            int pengalaman = scanner.nextInt();
+                            scanner.nextLine();
+
+                            Pelatih pelatihBaru = new Pelatih(namaPelatih, spesialisasi, pengalaman);
+                            klub.tambahPelatih(pelatihBaru);
+                            menuView.tampilkanPesan("Pelatih Berhasil Ditambahkan");
+                            break;
+
+                        case 2:
+                            klub.tampilkanSemuaPelatih();
+                            menuView.tampilkanPesan("Tekan Enter untuk kembali ke menu.");
+                            scanner.nextLine();
+                            break;
+                            
+                        case 3:
+                            menuView.tampilkanPesan("Kembali ke menu utama.");
+                            break;
+                            
+                        default:
+                            menuView.tampilkanPesan("Pilihan hanya 1-3.");
+
+                    }
+                }
+                while (pilihanPelatih != 3);
+                break;
+                
             case 3:
-                System.out.print("Masukkan Nama Pemain: ");
-                String namaHapus = scanner.nextLine();
-                boolean berhasilHapus = klub.hapusPemain(namaHapus);
-                if (berhasilHapus) {
-                    menuView.tampilkanPesan("Pemain Sudah Dihapus.");
+                int pilihanPertandingan;
+                do {
+                    menuView.tampilkanMenuPertandingan();
+                    System.out.print("Pilih Menu: ");
+                    
+                    while (!scanner.hasNextInt()) {
+                        menuView.tampilkanPesan("Input harus angka, silahkan coba lagi.");
+                        scanner.next();
+                        System.out.print("Pilih Menu: ");
+                    }
+                    pilihanPertandingan = scanner.nextInt();
+                    scanner.nextLine();
+                    
+                    switch (pilihanPertandingan) {
+                        case 1:
+                            System.out.print("Masukkan Nama Tim Lawan: ");
+                            String lawan = scanner.nextLine();
+
+                            System.out.print("Tanggal (dd-mm-yy): ");
+                            String tanggal = scanner.nextLine();
+
+                            System.out.print("Kompetisi: ");
+                            String kompetisi = scanner.nextLine();
+
+                            System.out.print("Skor Klub Kita: ");
+                            while (!scanner.hasNextInt()) {
+                                menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka.");
+                                scanner.next();
+                            }
+                            int skorKlub = scanner.nextInt();
+
+                            System.out.print("Skor Klub Lawan: ");
+                            while (!scanner.hasNextInt()) {
+                                menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka.");
+                                scanner.next();
+                            }
+                            int skorLawan = scanner.nextInt();
+                            scanner.nextLine();
+
+                            System.out.print("Lokasi (Kandang/Tandang): ");
+                            String lokasi = scanner.nextLine();
+
+                            Pertandingan p = new Pertandingan(lawan, tanggal, kompetisi, skorKlub, skorLawan, lokasi);
+
+                            klub.tambahPertandingan(p);
+                            menuView.tampilkanPesan("Pertandingan Berhasil Ditambahkan ");
+                            break;
+
+                        case 2:
+                            klub.tampilkanRiwayatPertandingan();
+                            menuView.tampilkanPesan("Tekan Enter untuk kembali ke menu.");
+                            scanner.nextLine();
+                            break;
+
+                        case 3:
+                            menuView.tampilkanPesan("Kembali ke menu utama.");
+                            break;
+                            
+                        default:
+                            menuView.tampilkanPesan("Pilihan hanya 1-3.");
+                            
+                    }
                 }
-                else {
-                    menuView.tampilkanPesan("Pemain dengan nama tersebut tidak ada.");
-                }
+                while(pilihanPertandingan !=3);
                 break;
 
             case 4:
-                System.out.print("Masukkan Nama Pemain: ");
-                String namaUpdate = scanner.nextLine();
-                System.out.print("Status Kesehatan Baru (Tersedia/Cedera): ");
-                String statusBaru = scanner.nextLine();
-                boolean berhasilUpdate = klub.updateStatusPemain(namaUpdate, statusBaru);
-                if (berhasilUpdate) {
-                    menuView.tampilkanPesan("Update Status Pemain Berhasil");
-                } 
-                else {
-                    menuView.tampilkanPesan("Pemain dengan nama tersebut tidak ditemukan.");
-                }
-                break;
-
-            case 5:
-                System.out.print("Masukkan Nama Tim Lawan: ");
-                String lawan = scanner.nextLine();
-
-                System.out.print("Tanggal (dd-mm-yy): ");
-                String tanggal = scanner.nextLine();
-
-                System.out.print("Kompetisi: ");
-                String kompetisi = scanner.nextLine();
-
-                System.out.print("Skor Klub Kita: ");
-                while (!scanner.hasNextInt()) {
-                    menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka.");
-                    scanner.next();
-                }
-                int skorKlub = scanner.nextInt();
-
-                System.out.print("Skor Klub Lawan: ");
-                while (!scanner.hasNextInt()) {
-                    menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka.");
-                    scanner.next();
-                }
-                int skorLawan = scanner.nextInt();
-                scanner.nextLine();
-
-                System.out.print("Lokasi (Kandang/Tandang): ");
-                String lokasi = scanner.nextLine();
-
-                Pertandingan p = new Pertandingan(lawan, tanggal, kompetisi, skorKlub, skorLawan, lokasi);
-
-                klub.tambahPertandingan(p);
-                menuView.tampilkanPesan("Pertandingan Berhasil Ditambahkan ");
-                break;
-
-            case 6:
-                klub.tampilkanRiwayatPertandingan();
-                menuView.tampilkanPesan("Tekan Enter untuk kembali ke menu.");
-                scanner.nextLine();
-                break;
-
-            case 7:
-                System.out.print("Nama Pelatih: ");
-                String namaPelatih = scanner.nextLine();
-
-                System.out.print("Spesialisasi: ");
-                String spesialisasi = scanner.nextLine();
-
-                System.out.print("Pengalaman (tahun): ");
-                while (!scanner.hasNextInt()) {
-                    menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka.");
-                    scanner.next();
-                }
-                int pengalaman = scanner.nextInt();
-                scanner.nextLine();
-
-                Pelatih pelatihBaru = new Pelatih(namaPelatih, spesialisasi, pengalaman);
-                klub.tambahPelatih(pelatihBaru);
-                menuView.tampilkanPesan("Pelatih Berhasil Ditambahkan");
-                break;
-
-            case 8:
-                klub.tampilkanSemuaPelatih();
-                menuView.tampilkanPesan("Tekan Enter untuk kembali ke menu.");
-                scanner.nextLine();
-                break;
-
-            case 9:
-                menuView.tampilkanPesan("Sampai Jumpa");
+                menuView.tampilkanPesan("Program Selesai.");
                 break;
 
             default:
-                menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka (1-9).");
+                menuView.tampilkanPesan("Pilihan tidak valid, harus berupa angka 1-4.");
         }
       } 
-           while (pilihan != 9);
+      while (pilihanUtama != 4);
 
-         scanner.close();
+      scanner.close();
     }
 }

@@ -1,7 +1,7 @@
 package model;
 
-public class Pelatih extends AnggotaKlub{
-    private String spesialisasi;
+public final class Pelatih extends AnggotaKlub{
+    private final String spesialisasi;
     private int pengalaman;
     
     public Pelatih(String nama, String spesialisasi, int pengalaman) {
@@ -10,19 +10,12 @@ public class Pelatih extends AnggotaKlub{
         setPengalaman(pengalaman);
     }
     
-    public String getSpesialisasi(){
-        return spesialisasi;
+    @Override
+    public String getPeran() {
+        return "Pelatih";
     }
     
-    public int getPengalaman(){
-        return pengalaman;
-    }
-    
-    public void setSpesialisasi(String spesialisasi){
-        this.spesialisasi = spesialisasi;
-    }
-    
-    public void setPengalaman(int pengalaman){
+    private void setPengalaman(int pengalaman){
         if (pengalaman >= 0 && pengalaman <= 50) {
             this.pengalaman = pengalaman;
         }
