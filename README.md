@@ -282,7 +282,7 @@ Berikut adalah dokumentasi visual antarmuka dan keluaran program saat dijalankan
 #### D. Hapus Pemain
 > Proses penghapusan data pemain dari sistem berdasarkan nama yang diinputkan pengguna.
 
-![Hapus Pemain]([screenshots/05-hapus-pemain.png](https://github.com/kennygiovanni/Minpro-3-PBO-ManajemenKlubSepakBola/blob/master/screenshots/Screenshot%202026-10-08%20224805.png))
+![Hapus Pemain](https://github.com/kennygiovanni/Minpro-3-PBO-ManajemenKlubSepakBola/blob/master/screenshots/Screenshot%202026-10-08%20224805.png)
 
 #### E. Update Status Pemain
 > Pembaruan status kesehatan pemain (Tersedia/Cedera) berdasarkan nama pemain yang dicari.
